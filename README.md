@@ -33,7 +33,7 @@
   | -------------------------------- | ------------ | ------------------ |
   | `<family lang="zh-Hans">`        | 中文简体     | NotoSansCJK-VF.ttc |
   | `<family lang="zh-Hant">`        | 中文繁体港版 | NotoSansCJK-VF.ttc |
-  | `<family lang="zh-Hans">`        | 中文繁体台版 | NotoSansCJK-VF.ttc |
+  | `<family lang="zh-Bopo">`        | 中文繁体台版 | NotoSansCJK-VF.ttc |
   | `<family lang="ja">`             | 日文         | NotoSansCJK-VF.ttc |
   | `<family lang="ko">`             | 韩文         | NotoSansCJK-VF.ttc |
 
