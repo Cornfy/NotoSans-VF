@@ -1,0 +1,6 @@
+id=NotoSans-VF
+name=NotoSans [en-cjk-mono] Variable Fonts
+version=v1.0.0
+versionCode=1
+author=Cy
+description=不修改系统文件实现多字重字体替换，勾选模块后重启生效。如果手机系统自带字体切换功能，请务必切回系统默认字体。
