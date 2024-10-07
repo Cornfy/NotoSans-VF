@@ -1,0 +1,53 @@
+name: Create Magisk Module Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version number for the release (e.g., v1.0.0)'
+        required: true
+        default: 'v1.0.0'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Extract repository name
+        id: get_repo_name
+        run: |
+          REPO_NAME=$(echo "${{ github.repository }}" | cut -d'/' -f2)
+          echo "REPO_NAME=${REPO_NAME}" >> $GITHUB_ENV
+
+      - name: Zip Magisk Module
+        run: |
+          VERSION=${{ github.ref_name || github.event.inputs.version }}
+          zip -r MagiskModule-${REPO_NAME}-${VERSION}.zip ./* -x ".github/*"
+          echo "Created zip file: MagiskModule-${REPO_NAME}-${VERSION}.zip"
+
+      - name: List files
+        run: ls -la
+
+      - name: Create Release
+        id: create_release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name || github.event.inputs.version }}
+          name: Release ${{ github.ref_name || github.event.inputs.version }}
+          body: "Release for version ${{ github.ref_name || github.event.inputs.version }}"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Release Asset
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ github.ref_name || github.event.inputs.version }}
+          files: ./MagiskModule-${{ env.REPO_NAME }}-${{ github.ref_name || github.event.inputs.version }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
