@@ -2,18 +2,17 @@
 
 #### 该模块可以将手机的字体修改为 Noto Sans 动态字重
 
-- 支持 无衬线、窄版、等宽 等字体样式；
-- 支持 英文、中文（区分港、台繁体写法）、日文、韩文 等语言；
-- 使用 遍黑体、天珩全字库 以补全生僻字符；
-- 不支持修改 Google 系 Apps 的 UI 界面字体；
+- 支持 `无衬线`、`窄版`、`衬线`、`等宽` 等字体样式；
+- 支持 `英文`、`中文（区分港、台繁体写法）`、`日文`、`韩文` 等语言；
+- 使用 `遍黑体`、`天珩全字库` 以补全生僻字符；
 
 
 
 #### 测试环境
 
 - 设备： Oneplus 12
-- 系统： Oxygen OS based on Android 14
-- 系统版本： CPH2581_14.0.0_840(EX01)
+- 系统： Oxygen OS based on Android 15
+- 系统版本： CPH2581_15.0.0_832(EX01)
 
 
 
@@ -25,6 +24,7 @@
   | -------------------------------------- | -------- | ------------------------------------------ |
   | `<family name="sans-serif">`           | 默认字体 | NotoSans-VF.ttf<br/>NotoSans-Italic-VF.ttf |
   | `<family name="sans-serif-condensed">` | 窄版字体 | NotoSans-VF.ttf<br/>NotoSans-Italic-VF.ttf |
+  | `<family name="serif">` | 窄版字体 | NotoSerif-VF.ttf<br/>NotoSerif-Italic-VF.ttf |
   | `<family name="serif">`                | 等宽字体 | NotoSans-Mono-VF.ttf                       |
 
 - 替换中、日、韩文字体：
